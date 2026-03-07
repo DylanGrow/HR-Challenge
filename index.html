@@ -319,10 +319,6 @@
   .autocomplete-item {
     padding: 10px 16px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
     border-bottom: 1px solid rgba(255,255,255,0.05);
     transition: background 0.15s;
   }
@@ -341,25 +337,6 @@
   .autocomplete-item .player-name em {
     font-style: normal;
     color: var(--gold);
-  }
-
-  .autocomplete-item .player-meta {
-    font-size: 12px;
-    color: rgba(245,240,232,0.45);
-    font-family: 'DM Mono', monospace;
-    white-space: nowrap;
-  }
-
-  .autocomplete-item .player-hr {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
-    color: var(--gold);
-    min-width: 40px;
-    text-align: right;
-  }
-
-  .autocomplete-item .player-hr.too-big {
-    color: var(--red-light);
   }
 
   .autocomplete-item.invalid-rule {
@@ -971,12 +948,14 @@ document.getElementById('search-input').addEventListener('input', function() {
   selectedPlayer = null;
   document.getElementById('submit-btn').disabled = true;
 
-  if (q.length < 1) { hideAutocomplete(); return; }
+  if (q.length < 2) { hideAutocomplete(); return; }
 
   const matches = PLAYERS
     .filter(p => {
       if (state.usedIds.has(p.name)) return false;
-      return p.name.toLowerCase().includes(q);
+      if (!p.name.toLowerCase().includes(q)) return false;
+      if (q.length / p.name.length <= 0.5) return false;
+      return true;
     })
     .sort((a, b) => {
       // Exact start match first
@@ -1007,12 +986,8 @@ document.getElementById('search-input').addEventListener('input', function() {
     const re = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi');
     const highlighted = p.name.replace(re, '<em>$1</em>');
 
-    const posList = [...new Set(p.positions)].join('/');
-
     item.innerHTML = `
       <span class="player-name">${highlighted}</span>
-      <span class="player-meta">${posList} · ${p.active ? '🟢' : '⚪'}</span>
-      <span class="player-hr ${tooBig ? 'too-big' : ''}">${p.hr}</span>
     `;
 
     if (!violatesRule) {
