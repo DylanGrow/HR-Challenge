@@ -1,0 +1,35 @@
+name: Update Active Player Stats
+
+on:
+  schedule:
+    # Runs at 6:00 AM UTC every day (2 AM ET, after overnight MLB data refresh)
+    - cron: '0 6 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Update active player stats
+        run: python scripts/update_stats.py
+
+      - name: Commit updated player data
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git diff --quiet players.json || (
+            git add players.json &&
+            git commit -m "chore: update active player HR stats [$(date +'%Y-%m-%d')]" &&
+            git push
+          )

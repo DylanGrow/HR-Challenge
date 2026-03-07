@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 1000 Club ⚾</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --grass: #1a4a2e;
+    --grass-light: #2d6b45;
+    --dirt: #c4874a;
+    --chalk: #f5f0e8;
+    --cream: #faf7f2;
+    --gold: #d4a843;
+    --gold-dark: #b8892a;
+    --red: #c0392b;
+    --red-light: #e74c3c;
+    --navy: #0d1b2a;
+    --navy-mid: #1a2e42;
+    --sky: #3a7bd5;
+    --score-good: #27ae60;
+    --score-ok: #f39c12;
+    --score-bad: #c0392b;
+    --shadow: 0 4px 24px rgba(0,0,0,0.35);
+    --shadow-lg: 0 12px 48px rgba(0,0,0,0.5);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--navy);
+    color: var(--chalk);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Stadium background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 120% 60% at 50% 100%, var(--grass) 0%, transparent 60%),
+      radial-gradient(ellipse 200% 40% at 50% 110%, var(--grass-light) 0%, transparent 50%),
+      linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 60%, #0a1520 100%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Stars */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: 
+      radial-gradient(1px 1px at 15% 10%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 30% 5%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 8%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 70% 3%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 85% 12%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 22% 18%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 15%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 20%, rgba(255,255,255,0.3) 0%, transparent 100%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 20px 16px 60px;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 28px 0 20px;
+    position: relative;
+  }
+
+  .header-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    padding: 4px 14px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+  }
+
+  .header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 12vw, 88px);
+    letter-spacing: 2px;
+    line-height: 0.9;
+    color: var(--chalk);
+    text-shadow: 0 0 60px rgba(212,168,67,0.3);
+  }
+
+  .header h1 span {
+    color: var(--gold);
+  }
+
+  .header-sub {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    color: rgba(245,240,232,0.6);
+    font-size: 15px;
+    margin-top: 6px;
+  }
+
+  .mode-tabs {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 18px;
+  }
+
+  .mode-tab {
+    padding: 7px 22px;
+    border-radius: 4px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+    background: rgba(255,255,255,0.05);
+    color: rgba(245,240,232,0.5);
+  }
+
+  .mode-tab.active {
+    background: var(--gold);
+    color: var(--navy);
+    border-color: var(--gold);
+  }
+
+  .mode-tab:hover:not(.active) {
+    border-color: rgba(212,168,67,0.4);
+    color: var(--chalk);
+  }
+
+  /* Score board */
+  .scoreboard {
+    background: rgba(13,27,42,0.85);
+    border: 1px solid rgba(212,168,67,0.25);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 20px 0 16px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+  }
+
+  .scoreboard-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .score-main {
+    text-align: center;
+    flex: 1;
+  }
+
+  .score-label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 3px;
+    font-size: 11px;
+    color: rgba(245,240,232,0.4);
+    margin-bottom: 4px;
+  }
+
+  .score-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(60px, 16vw, 96px);
+    line-height: 1;
+    transition: all 0.3s;
+  }
+
+  .score-number.good { color: var(--gold); }
+  .score-number.warning { color: var(--dirt); }
+  .score-number.danger { color: var(--red-light); }
+  .score-number.zero { color: var(--score-good); animation: pulse-win 0.5s ease; }
+
+  @keyframes pulse-win {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+
+  .score-divider {
+    width: 1px;
+    height: 60px;
+    background: rgba(212,168,67,0.2);
+  }
+
+  .score-side {
+    text-align: center;
+    min-width: 80px;
+  }
+
+  .score-side .val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    line-height: 1;
+    color: var(--chalk);
+  }
+
+  .lives-display {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-top: 4px;
+  }
+
+  .life-icon {
+    font-size: 18px;
+    transition: all 0.3s;
+  }
+
+  .life-icon.lost {
+    opacity: 0.2;
+    filter: grayscale(1);
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+  }
+
+  .shake { animation: shake 0.4s ease; }
+
+  /* Rule card */
+  .rule-card {
+    background: linear-gradient(135deg, rgba(212,168,67,0.15), rgba(212,168,67,0.05));
+    border: 1px solid rgba(212,168,67,0.35);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .rule-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .rule-text {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    color: var(--chalk);
+    line-height: 1.4;
+  }
+
+  .rule-text strong {
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  /* Search */
+  .search-area {
+    position: relative;
+    margin-bottom: 14px;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 14px 20px;
+    background: rgba(255,255,255,0.06);
+    border: 2px solid rgba(212,168,67,0.3);
+    border-radius: 8px;
+    color: var(--chalk);
+    font-family: 'DM Mono', monospace;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .search-input:focus {
+    border-color: var(--gold);
+    background: rgba(255,255,255,0.09);
+  }
+
+  .search-input::placeholder { color: rgba(245,240,232,0.3); }
+
+  .search-input:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .autocomplete-list {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0; right: 0;
+    background: var(--navy-mid);
+    border: 1px solid rgba(212,168,67,0.3);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 100;
+    box-shadow: var(--shadow-lg);
+    max-height: 280px;
+    overflow-y: auto;
+  }
+
+  .autocomplete-item {
+    padding: 10px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: background 0.15s;
+  }
+
+  .autocomplete-item:last-child { border-bottom: none; }
+
+  .autocomplete-item:hover, .autocomplete-item.selected {
+    background: rgba(212,168,67,0.12);
+  }
+
+  .autocomplete-item .player-name {
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .autocomplete-item .player-name em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  .autocomplete-item .player-meta {
+    font-size: 12px;
+    color: rgba(245,240,232,0.45);
+    font-family: 'DM Mono', monospace;
+    white-space: nowrap;
+  }
+
+  .autocomplete-item .player-hr {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: var(--gold);
+    min-width: 40px;
+    text-align: right;
+  }
+
+  .autocomplete-item .player-hr.too-big {
+    color: var(--red-light);
+  }
+
+  .autocomplete-item.invalid-rule {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 16px;
+  }
+
+  .submit-btn:hover:not(:disabled) {
+    background: var(--gold-dark);
+    transform: translateY(-1px);
+  }
+
+  .submit-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* Picks log */
+  .picks-section {
+    margin-top: 4px;
+  }
+
+  .picks-label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 3px;
+    font-size: 11px;
+    color: rgba(245,240,232,0.4);
+    margin-bottom: 8px;
+  }
+
+  .picks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .pick-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 6px;
+    border-left: 3px solid var(--grass-light);
+    animation: slideIn 0.25s ease;
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .pick-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    color: rgba(245,240,232,0.3);
+    min-width: 20px;
+  }
+
+  .pick-name {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .pick-hr {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--gold);
+  }
+
+  .pick-arrow {
+    font-size: 12px;
+    color: rgba(245,240,232,0.3);
+  }
+
+  .pick-remaining {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    min-width: 36px;
+    text-align: right;
+    color: rgba(245,240,232,0.6);
+  }
+
+  /* Bust animation */
+  .bust-flash {
+    position: fixed;
+    inset: 0;
+    background: rgba(192,57,43,0.25);
+    z-index: 200;
+    pointer-events: none;
+    animation: bustFlash 0.5s ease forwards;
+  }
+
+  @keyframes bustFlash {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  /* End screen */
+  .end-screen {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    background: rgba(10,18,28,0.93);
+    backdrop-filter: blur(8px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .end-screen.visible { display: flex; }
+
+  .end-emoji {
+    font-size: 64px;
+    margin-bottom: 12px;
+    animation: popIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  }
+
+  @keyframes popIn {
+    from { transform: scale(0.3); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .end-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(44px, 12vw, 72px);
+    letter-spacing: 2px;
+    color: var(--chalk);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .end-subtitle {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    color: rgba(245,240,232,0.6);
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .end-stats {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .end-stat {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(212,168,67,0.2);
+    border-radius: 8px;
+    padding: 14px 24px;
+    min-width: 100px;
+  }
+
+  .end-stat .val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+    line-height: 1;
+    color: var(--gold);
+  }
+
+  .end-stat .lbl {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(245,240,232,0.4);
+    font-family: 'Bebas Neue', sans-serif;
+    margin-top: 2px;
+  }
+
+  .share-box {
+    background: rgba(13,27,42,0.9);
+    border: 1px solid rgba(212,168,67,0.25);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--chalk);
+    line-height: 1.7;
+    max-width: 380px;
+    text-align: left;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .end-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn {
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  .btn-primary:hover { background: var(--gold-dark); transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: rgba(255,255,255,0.07);
+    color: var(--chalk);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .btn-secondary:hover { background: rgba(255,255,255,0.12); }
+
+  .toast {
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-80px);
+    background: var(--grass);
+    color: var(--chalk);
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 17px;
+    letter-spacing: 1.5px;
+    z-index: 500;
+    transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    white-space: nowrap;
+  }
+
+  .toast.show { transform: translateX(-50%) translateY(0); }
+  .toast.error { background: var(--red); }
+
+  /* Progress bar */
+  .progress-bar-wrap {
+    height: 4px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 2px;
+    margin-top: 12px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--grass-light), var(--gold));
+    border-radius: 2px;
+    transition: width 0.5s ease;
+  }
+
+  /* Responsive */
+  @media (max-width: 420px) {
+    .scoreboard-top { flex-direction: column; gap: 8px; }
+    .score-divider { display: none; }
+    .end-stats { gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <div class="header-badge">⚾ DAILY CHALLENGE</div>
+    <h1>THE <span>1000</span><br>CLUB</h1>
+    <div class="header-sub">Count down from 1000 using career home run totals</div>
+    <div class="mode-tabs">
+      <button class="mode-tab active" onclick="setMode('daily')" id="tab-daily">Daily</button>
+      <button class="mode-tab" onclick="setMode('free')" id="tab-free">Free Play</button>
+    </div>
+  </div>
+
+  <div class="scoreboard" id="scoreboard">
+    <div class="scoreboard-top">
+      <div class="score-side">
+        <div class="score-label">PICKS</div>
+        <div class="val" id="pick-count">0</div>
+        <div class="score-label" style="margin-top:4px">PAR <span id="par-display">—</span></div>
+      </div>
+      <div class="score-divider"></div>
+      <div class="score-main">
+        <div class="score-label">REMAINING</div>
+        <div class="score-number good" id="remaining">1000</div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" id="progress-bar" style="width:0%"></div>
+        </div>
+      </div>
+      <div class="score-divider"></div>
+      <div class="score-side">
+        <div class="score-label">LIVES</div>
+        <div class="lives-display" id="lives-display">
+          <span class="life-icon">⚾</span>
+          <span class="life-icon">⚾</span>
+          <span class="life-icon">⚾</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rule-card" id="rule-card">
+    <div class="rule-icon">📋</div>
+    <div class="rule-text" id="rule-text">Loading today's challenge...</div>
+  </div>
+
+  <div class="search-area">
+    <input
+      type="text"
+      class="search-input"
+      id="search-input"
+      placeholder="Search MLB player..."
+      autocomplete="off"
+      spellcheck="false"
+    />
+    <div class="autocomplete-list" id="autocomplete-list" style="display:none"></div>
+  </div>
+
+  <button class="submit-btn" id="submit-btn" disabled onclick="submitPick()">
+    ⚾ SUBMIT PICK
+  </button>
+
+  <div class="picks-section">
+    <div class="picks-label" id="picks-label" style="display:none">YOUR PICKS</div>
+    <div class="picks-list" id="picks-list"></div>
+  </div>
+</div>
+
+<!-- End screen -->
+<div class="end-screen" id="end-screen">
+  <div class="end-emoji" id="end-emoji">🏆</div>
+  <div class="end-title" id="end-title">YOU WIN!</div>
+  <div class="end-subtitle" id="end-subtitle">Incredible!</div>
+  <div class="end-stats">
+    <div class="end-stat">
+      <div class="val" id="end-picks">0</div>
+      <div class="lbl">PICKS</div>
+    </div>
+    <div class="end-stat">
+      <div class="val" id="end-par">0</div>
+      <div class="lbl">PAR</div>
+    </div>
+    <div class="end-stat">
+      <div class="val" id="end-lives">0</div>
+      <div class="lbl">LIVES LEFT</div>
+    </div>
+  </div>
+  <div class="share-box" id="share-box"></div>
+  <div class="end-buttons">
+    <button class="btn btn-primary" onclick="copyShare()">📋 Copy Result</button>
+    <button class="btn btn-secondary" id="play-again-btn" onclick="startFreePlay()">🔄 Free Play</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ============================================================
+// PLAYER DATA — loaded from players.json
+// ============================================================
+let PLAYERS = [];
+
+// ============================================================
+// GAME STATE
+// ============================================================
+let state = {
+  mode: 'daily',
+  target: 1000,
+  remaining: 1000,
+  lives: 3,
+  picks: [],
+  usedIds: new Set(),
+  rule: null,
+  ruleApplied: false,
+  gameOver: false,
+  won: false,
+  par: 0,
+  seed: 0,
+};
+
+let selectedPlayer = null;
+let acIndex = -1;
+
+// ============================================================
+// DAILY RULES
+// ============================================================
+const RULES = [
+  { text: 'Your <strong>first player</strong> must be a <strong>Center Fielder (CF)</strong>', fn: p => p.positions.includes('CF') },
+  { text: 'Your <strong>first player</strong> must be a <strong>Catcher (C)</strong>', fn: p => p.positions.includes('C') },
+  { text: 'Your <strong>first player</strong> must have played for the <strong>New York Yankees</strong>', fn: p => p.teams.includes('NYY') },
+  { text: 'Your <strong>first player</strong> must have played for the <strong>Boston Red Sox</strong>', fn: p => p.teams.includes('BOS') },
+  { text: 'Your <strong>first player</strong> must have played for the <strong>Chicago Cubs</strong>', fn: p => p.teams.includes('CHC') },
+  { text: 'Your <strong>first player</strong> must be a <strong>Left Fielder (LF)</strong>', fn: p => p.positions.includes('LF') },
+  { text: 'Your <strong>first player</strong> must be a <strong>Third Baseman (3B)</strong>', fn: p => p.positions.includes('3B') },
+  { text: 'Your <strong>first player</strong> must be a <strong>Shortstop (SS)</strong>', fn: p => p.positions.includes('SS') },
+  { text: 'Your <strong>first player</strong> must have played for the <strong>San Francisco Giants</strong>', fn: p => p.teams.includes('SF') },
+  { text: 'Your <strong>first player</strong> must have played for the <strong>Los Angeles Dodgers</strong>', fn: p => p.teams.includes('LAD') },
+  { text: 'Your <strong>first player</strong> must have played for the <strong>Atlanta Braves</strong>', fn: p => p.teams.includes('ATL') },
+  { text: 'Your <strong>first player</strong> must have played for the <strong>St. Louis Cardinals</strong>', fn: p => p.teams.includes('STL') },
+  { text: 'Your <strong>first player</strong> must be a <strong>First Baseman (1B)</strong>', fn: p => p.positions.includes('1B') },
+  { text: 'Your <strong>first player</strong> must have played for the <strong>Oakland Athletics</strong>', fn: p => p.teams.includes('OAK') },
+  { text: 'Your <strong>first player</strong> must have played for the <strong>Texas Rangers</strong>', fn: p => p.teams.includes('TEX') },
+  { text: 'Your <strong>first player</strong> must have played for the <strong>Houston Astros</strong>', fn: p => p.teams.includes('HOU') },
+  { text: 'Your <strong>first player</strong> must be a <strong>Right Fielder (RF)</strong>', fn: p => p.positions.includes('RF') },
+  { text: 'Your <strong>first player</strong> must be a <strong>Second Baseman (2B)</strong>', fn: p => p.positions.includes('2B') },
+  { text: 'Your <strong>first player</strong> must have played for the <strong>Seattle Mariners</strong>', fn: p => p.teams.includes('SEA') },
+  { text: 'Your <strong>first player</strong> must have played for the <strong>Pittsburgh Pirates</strong>', fn: p => p.teams.includes('PIT') },
+  { text: 'Your <strong>first player</strong> must have hit at least <strong>400 career home runs</strong>', fn: p => p.hr >= 400 },
+  { text: 'Your <strong>first player</strong> must have hit <strong>fewer than 100 career home runs</strong>', fn: p => p.hr < 100 && p.hr > 0 },
+  { text: 'Your <strong>first player</strong> must be a <strong>currently active player</strong>', fn: p => p.active === true },
+  { text: 'Your <strong>first player</strong> must be a <strong>retired player</strong>', fn: p => p.active === false },
+  { text: 'Your <strong>first player</strong> must have played for the <strong>Cincinnati Reds</strong>', fn: p => p.teams.includes('CIN') },
+  { text: 'Your <strong>first player</strong> must have played for the <strong>Philadelphia Phillies</strong>', fn: p => p.teams.includes('PHI') },
+  { text: 'Your <strong>first player</strong> must have played for the <strong>Cleveland Guardians/Indians</strong>', fn: p => p.teams.includes('CLE') },
+  { text: 'Your <strong>first player</strong> must have played for the <strong>Minnesota Twins</strong>', fn: p => p.teams.includes('MIN') },
+  { text: 'Your <strong>first player</strong> must have a <strong>DH designation</strong>', fn: p => p.positions.includes('DH') },
+  { text: 'Your <strong>first player</strong> must have played for the <strong>Toronto Blue Jays</strong>', fn: p => p.teams.includes('TOR') },
+];
+
+// ============================================================
+// SEEDED RNG
+// ============================================================
+function seededRand(seed) {
+  let s = seed;
+  return function() {
+    s = (s * 1664525 + 1013904223) & 0xffffffff;
+    return (s >>> 0) / 0xffffffff;
+  };
+}
+
+function getDailySeed() {
+  const d = new Date();
+  return d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
+}
+
+// ============================================================
+// PAR COMPUTATION (greedy: fewest picks to reach exactly 0)
+// ============================================================
+function computePar(target, players) {
+  // Sort desc by hr
+  const sorted = [...players].filter(p => p.hr > 0 && p.hr <= target).sort((a, b) => b.hr - a.hr);
+  let rem = target;
+  let picks = 0;
+  const used = new Set();
+
+  while (rem > 0 && picks < 50) {
+    // Find largest hr <= rem not used
+    const p = sorted.find(x => x.hr <= rem && !used.has(x.name));
+    if (!p) break;
+    used.add(p.name);
+    rem -= p.hr;
+    picks++;
+  }
+  return rem === 0 ? picks : Math.ceil(target / 100); // fallback estimate
+}
+
+// ============================================================
+// INIT
+// ============================================================
+async function loadPlayers() {
+  try {
+    const res = await fetch('players.json');
+    PLAYERS = await res.json();
+  } catch(e) {
+    // Fallback: embedded minimal set so game still works
+    PLAYERS = [];
+    showToast('Could not load player data', true);
+  }
+}
+
+async function init() {
+  await loadPlayers();
+  setMode('daily');
+}
+
+function setMode(mode) {
+  state.mode = mode;
+  document.getElementById('tab-daily').classList.toggle('active', mode === 'daily');
+  document.getElementById('tab-free').classList.toggle('active', mode === 'free');
+  document.getElementById('tab-daily').textContent = mode === 'daily' ? '⭐ Daily' : 'Daily';
+
+  const badge = document.querySelector('.header-badge');
+  badge.textContent = mode === 'daily' ? '⚾ DAILY CHALLENGE' : '🎮 FREE PLAY';
+
+  startGame(mode);
+}
+
+function startGame(mode) {
+  let rand;
+  if (mode === 'daily') {
+    state.seed = getDailySeed();
+  } else {
+    state.seed = Math.floor(Math.random() * 999999);
+  }
+  rand = seededRand(state.seed);
+
+  // Pick rule
+  const ruleIdx = Math.floor(rand() * RULES.length);
+  state.rule = RULES[ruleIdx];
+
+  state.remaining = 1000;
+  state.lives = 3;
+  state.picks = [];
+  state.usedIds = new Set();
+  state.ruleApplied = false;
+  state.gameOver = false;
+  state.won = false;
+  state.par = computePar(1000, PLAYERS);
+
+  updateUI();
+  document.getElementById('end-screen').classList.remove('visible');
+  document.getElementById('search-input').value = '';
+  document.getElementById('search-input').disabled = false;
+  document.getElementById('submit-btn').disabled = true;
+  document.getElementById('picks-list').innerHTML = '';
+  document.getElementById('picks-label').style.display = 'none';
+  selectedPlayer = null;
+  hideAutocomplete();
+
+  document.getElementById('par-display').textContent = state.par;
+}
+
+function startFreePlay() {
+  document.getElementById('end-screen').classList.remove('visible');
+  setMode('free');
+}
+
+// ============================================================
+// UI
+// ============================================================
+function updateUI() {
+  const rem = state.remaining;
+  const el = document.getElementById('remaining');
+  el.textContent = rem;
+  el.className = 'score-number ' + (rem === 0 ? 'zero' : rem > 500 ? 'good' : rem > 200 ? 'warning' : 'danger');
+
+  document.getElementById('pick-count').textContent = state.picks.length;
+
+  // Lives
+  const lifeEls = document.querySelectorAll('.life-icon');
+  lifeEls.forEach((el, i) => {
+    el.classList.toggle('lost', i >= state.lives);
+  });
+
+  // Progress bar
+  const pct = ((1000 - rem) / 1000) * 100;
+  document.getElementById('progress-bar').style.width = pct + '%';
+
+  // Rule
+  const ruleEl = document.getElementById('rule-text');
+  if (!state.ruleApplied) {
+    ruleEl.innerHTML = '📋 ' + state.rule.text;
+    document.getElementById('rule-card').style.opacity = '1';
+  } else {
+    ruleEl.innerHTML = '✅ <em style="opacity:0.6">Opening rule satisfied</em>';
+    document.getElementById('rule-card').style.opacity = '0.5';
+  }
+}
+
+function renderPicks() {
+  const list = document.getElementById('picks-list');
+  list.innerHTML = '';
+  document.getElementById('picks-label').style.display = state.picks.length ? 'block' : 'none';
+
+  let running = 1000;
+  state.picks.forEach((p, i) => {
+    running -= p.hr;
+    const item = document.createElement('div');
+    item.className = 'pick-item';
+    item.innerHTML = `
+      <span class="pick-num">#${i+1}</span>
+      <span class="pick-name">${p.name}</span>
+      <span class="pick-hr">-${p.hr}</span>
+      <span class="pick-arrow">→</span>
+      <span class="pick-remaining">${running}</span>
+    `;
+    list.appendChild(item);
+  });
+}
+
+// ============================================================
+// AUTOCOMPLETE
+// ============================================================
+document.getElementById('search-input').addEventListener('input', function() {
+  const q = this.value.trim().toLowerCase();
+  selectedPlayer = null;
+  document.getElementById('submit-btn').disabled = true;
+
+  if (q.length < 1) { hideAutocomplete(); return; }
+
+  const matches = PLAYERS
+    .filter(p => {
+      if (state.usedIds.has(p.name)) return false;
+      return p.name.toLowerCase().includes(q);
+    })
+    .sort((a, b) => {
+      // Exact start match first
+      const aStart = a.name.toLowerCase().startsWith(q);
+      const bStart = b.name.toLowerCase().startsWith(q);
+      if (aStart && !bStart) return -1;
+      if (!aStart && bStart) return 1;
+      return b.hr - a.hr;
+    })
+    .slice(0, 10);
+
+  if (!matches.length) { hideAutocomplete(); return; }
+
+  const list = document.getElementById('autocomplete-list');
+  list.style.display = 'block';
+  list.innerHTML = '';
+  acIndex = -1;
+
+  matches.forEach(p => {
+    const isFirstPick = state.picks.length === 0 && !state.ruleApplied;
+    const violatesRule = isFirstPick && !state.rule.fn(p);
+    const tooBig = p.hr > state.remaining;
+
+    const item = document.createElement('div');
+    item.className = 'autocomplete-item' + (violatesRule ? ' invalid-rule' : '') + (tooBig ? ' too-big-item' : '');
+
+    // Highlight matching portion
+    const re = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi');
+    const highlighted = p.name.replace(re, '<em>$1</em>');
+
+    const posList = [...new Set(p.positions)].join('/');
+
+    item.innerHTML = `
+      <span class="player-name">${highlighted}</span>
+      <span class="player-meta">${posList} · ${p.active ? '🟢' : '⚪'}</span>
+      <span class="player-hr ${tooBig ? 'too-big' : ''}">${p.hr}</span>
+    `;
+
+    if (!violatesRule) {
+      item.addEventListener('click', () => selectPlayer(p));
+    } else {
+      item.title = 'Violates the opening rule';
+    }
+
+    list.appendChild(item);
+  });
+});
+
+document.getElementById('search-input').addEventListener('keydown', function(e) {
+  const list = document.getElementById('autocomplete-list');
+  const items = list.querySelectorAll('.autocomplete-item:not(.invalid-rule)');
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    acIndex = Math.min(acIndex + 1, items.length - 1);
+    items.forEach((it, i) => it.classList.toggle('selected', i === acIndex));
+    if (items[acIndex]) {
+      const name = items[acIndex].querySelector('.player-name').textContent;
+      // find player
+    }
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    acIndex = Math.max(acIndex - 1, 0);
+    items.forEach((it, i) => it.classList.toggle('selected', i === acIndex));
+  } else if (e.key === 'Enter') {
+    e.preventDefault();
+    if (acIndex >= 0 && items[acIndex]) {
+      items[acIndex].click();
+    } else if (selectedPlayer) {
+      submitPick();
+    }
+  } else if (e.key === 'Escape') {
+    hideAutocomplete();
+  }
+});
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-area')) hideAutocomplete();
+});
+
+function hideAutocomplete() {
+  document.getElementById('autocomplete-list').style.display = 'none';
+}
+
+function selectPlayer(p) {
+  selectedPlayer = p;
+  document.getElementById('search-input').value = p.name;
+  document.getElementById('submit-btn').disabled = false;
+  hideAutocomplete();
+}
+
+// ============================================================
+// GAME LOGIC
+// ============================================================
+function submitPick() {
+  if (!selectedPlayer || state.gameOver) return;
+
+  const p = selectedPlayer;
+
+  // Check already used
+  if (state.usedIds.has(p.name)) {
+    showToast('Already used ' + p.name + '!', true);
+    return;
+  }
+
+  // Check rule
+  if (state.picks.length === 0 && !state.ruleApplied) {
+    if (!state.rule.fn(p)) {
+      showToast('Violates the opening rule!', true);
+      triggerBust(false);
+      return;
+    }
+  }
+
+  // Check bust
+  if (p.hr > state.remaining) {
+    loseLife(p);
+    return;
+  }
+
+  // Valid pick!
+  state.usedIds.add(p.name);
+  state.picks.push(p);
+  if (state.picks.length === 1) state.ruleApplied = true;
+  state.remaining -= p.hr;
+
+  renderPicks();
+  updateUI();
+
+  document.getElementById('search-input').value = '';
+  selectedPlayer = null;
+  document.getElementById('submit-btn').disabled = true;
+  document.getElementById('search-input').focus();
+
+  if (state.remaining === 0) {
+    setTimeout(() => showWin(), 400);
+  }
+}
+
+function loseLife(p) {
+  state.lives--;
+  triggerBust(true);
+  showToast(p ? `${p.name} (${p.hr} HR) busts! -1 life` : 'Bust! -1 life', true);
+
+  if (state.lives <= 0) {
+    state.gameOver = true;
+    setTimeout(() => showLoss(), 600);
+  }
+
+  updateUI();
+  document.getElementById('search-input').value = '';
+  selectedPlayer = null;
+  document.getElementById('submit-btn').disabled = true;
+}
+
+function triggerBust(removeLife) {
+  const flash = document.createElement('div');
+  flash.className = 'bust-flash';
+  document.body.appendChild(flash);
+  setTimeout(() => flash.remove(), 500);
+
+  const sb = document.getElementById('scoreboard');
+  sb.classList.add('shake');
+  setTimeout(() => sb.classList.remove('shake'), 400);
+}
+
+// ============================================================
+// END SCREENS
+// ============================================================
+function showWin() {
+  state.won = true;
+  state.gameOver = true;
+  const picks = state.picks.length;
+  const par = state.par;
+  const diff = picks - par;
+
+  let emoji = '🏆';
+  let title = 'YOU WIN!';
+  let subtitle = '';
+
+  if (diff <= 0) { emoji = '🌟'; title = 'PERFECT!'; subtitle = 'You matched or beat par — legendary performance!'; }
+  else if (diff <= 2) { emoji = '🎯'; title = 'GREAT!'; subtitle = 'Just above par. Expert play!'; }
+  else if (diff <= 5) { emoji = '✅'; title = 'NICE!'; subtitle = 'Solid round. Can you do better tomorrow?'; }
+  else { emoji = '⚾'; title = 'YOU GOT IT!'; subtitle = 'Made it! Try for a better score tomorrow.'; }
+
+  showEndScreen(emoji, title, subtitle);
+}
+
+function showLoss() {
+  const emoji = '💀';
+  const title = 'STRUCK OUT!';
+  const subtitle = `You reached ${state.remaining} — so close! Try again.`;
+  showEndScreen(emoji, title, subtitle);
+}
+
+function showEndScreen(emoji, title, subtitle) {
+  document.getElementById('end-emoji').textContent = emoji;
+  document.getElementById('end-title').textContent = title;
+  document.getElementById('end-subtitle').textContent = subtitle;
+  document.getElementById('end-picks').textContent = state.picks.length;
+  document.getElementById('end-par').textContent = state.par;
+  document.getElementById('end-lives').textContent = state.lives;
+  document.getElementById('share-box').textContent = buildShareText();
+  document.getElementById('end-screen').classList.add('visible');
+
+  if (state.mode === 'daily') {
+    document.getElementById('play-again-btn').style.display = '';
+  } else {
+    document.getElementById('play-again-btn').textContent = '🔄 Play Again';
+  }
+}
+
+function buildShareText() {
+  const date = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  const mode = state.mode === 'daily' ? `Daily ${date}` : 'Free Play';
+  const result = state.won ? `${state.picks.length} picks (par ${state.par})` : `DNF — ${state.remaining} left`;
+
+  const emojiMap = (p, i) => {
+    if (!state.won && i >= state.picks.length) return '';
+    const hr = p.hr;
+    if (hr >= 500) return '🟩';
+    if (hr >= 200) return '🟨';
+    return '⬜';
+  };
+
+  const grid = state.picks.map(emojiMap).join('');
+
+  return `⚾ The 1000 Club — ${mode}\n${result}\n${grid}\nhttps://github.com/`;
+}
+
+function copyShare() {
+  const text = document.getElementById('share-box').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    showToast('Copied to clipboard!');
+  });
+}
+
+// ============================================================
+// TOAST
+// ============================================================
+function showToast(msg, isError = false) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast' + (isError ? ' error' : '');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ============================================================
+// START
+// ============================================================
+init();
+</script>
+</body>
+</html>
