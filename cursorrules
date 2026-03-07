@@ -1,0 +1,203 @@
+# ⚾ HR-Challenge — Cursor Rules
+# The 1000 Club: MLB Home Run Countdown Game
+# GitHub: https://github.com/Harryc0des/HR-challenge
+# Live: https://harryc0des.github.io/HR-challenge/
+
+---
+
+## PROJECT OVERVIEW
+
+This is a single-page, vanilla HTML/CSS/JS baseball puzzle game. Players count down from 1000 to exactly 0 using MLB players' career home run totals. It runs entirely in the browser with no build step, no framework, and no backend.
+
+---
+
+## REPO STRUCTURE
+
+```
+/
+├── index.html                        # ← ENTIRE GAME lives here (HTML + CSS + JS)
+├── players.json                      # ← Player database (source of truth for all HR data)
+├── README.md                         # ← Setup and deployment docs
+├── scripts/
+│   └── update_stats.py               # ← Nightly MLB API updater (Python)
+└── .github/
+    └── workflows/
+        └── update-players.yml        # ← GitHub Action: runs update_stats.py on schedule
+```
+
+**Critical rule:** The entire game is ONE FILE — `index.html`. Do not split it into separate JS or CSS files unless explicitly asked. All styles go in `<style>`, all logic goes in `<script>`, at the bottom of index.html.
+
+---
+
+## TECH STACK & CONSTRAINTS
+
+- **No frameworks.** Vanilla HTML, CSS, and JavaScript only.
+- **No npm, no build tools, no bundlers.** The game must work by opening index.html directly in a browser.
+- **No localStorage or sessionStorage.** All state is managed in memory via JavaScript variables.
+- **No external JS libraries** unless loaded from a CDN via a `<script src>` tag (and only if truly necessary).
+- **CSS custom properties** (variables) are used for all colors and spacing — always use the existing `--variable` names rather than hardcoding values.
+- **Google Fonts** are loaded via a `<link>` in the `<head>`. Do not change the fonts (Bebas Neue, DM Serif Display, DM Mono, Inter) without being asked.
+- **GitHub Pages** hosting — everything must work as static files, no server-side logic.
+
+---
+
+## PLAYERS.JSON SCHEMA
+
+Each player entry follows this exact schema. Never add or remove fields without updating the nightly update script too.
+
+```json
+{
+  "name": "Player Name",        // string — full name, used as unique ID
+  "hr": 123,                    // integer — career home run total
+  "positions": ["CF", "RF"],    // array of strings — all positions played
+  "teams": ["NYY", "BOS"],      // array of strings — all teams (3-letter MLB codes)
+  "active": false               // boolean — true if currently active MLB player
+}
+```
+
+### Valid position codes
+`C`, `1B`, `2B`, `3B`, `SS`, `LF`, `CF`, `RF`, `DH`, `SP`, `RP`
+
+### Valid team codes (MLB 3-letter abbreviations)
+`ARI`, `ATL`, `BAL`, `BOS`, `CHC`, `CWS`, `CIN`, `CLE`, `COL`, `DET`,
+`HOU`, `KC`, `LAA`, `LAD`, `MIA`, `MIL`, `MIN`, `NYM`, `NYY`, `OAK`,
+`PHI`, `PIT`, `SD`, `SF`, `SEA`, `STL`, `TB`, `TEX`, `TOR`, `WAS`,
+`MON`, `FLA`, `CAL`, `ANA`, `BKN`, `NYG`, `WAS` (historical codes are also valid)
+
+### Rules for editing players.json
+- Player `"name"` is the unique identifier — the game uses it to prevent duplicates. Never change a name without a find-and-replace throughout the codebase.
+- Always keep the array sorted with active players last (retired players first by convention) — or don't sort at all, the game handles filtering dynamically.
+- `"active": true` players will have their `"hr"` value overwritten nightly by the GitHub Action. Don't manually set HR for active players expecting it to stay — use the action.
+
+---
+
+## GAME LOGIC (index.html)
+
+### Core state object
+All game state lives in the `state` object. Never store game state outside of it.
+
+```js
+state = {
+  mode: 'daily' | 'free',
+  target: 1000,         // always 1000
+  remaining: 1000,      // counts down to 0
+  lives: 3,             // max 3, lost on bust
+  picks: [],            // array of player objects selected so far
+  usedIds: Set,         // player names already used this game
+  rule: Object,         // the active opening rule { text, fn }
+  ruleApplied: Boolean, // true after first valid pick
+  gameOver: Boolean,
+  won: Boolean,
+  par: Number,          // pre-computed optimal pick count
+  seed: Number,         // RNG seed (date-based for daily, random for free play)
+}
+```
+
+### Daily seed
+The daily challenge uses a deterministic seed based on the current date:
+```js
+seed = year * 10000 + (month + 1) * 100 + day
+```
+This ensures all players worldwide get the same puzzle on the same date. **Never change this formula** — it would break daily consistency.
+
+### Rules array
+Daily rules live in the `RULES` array. Each rule is:
+```js
+{ text: 'HTML string shown to player', fn: (player) => Boolean }
+```
+The `fn` receives a player object from `players.json` and returns true if that player satisfies the rule. Rules are picked using the seeded RNG so the same rule appears on the same day for everyone.
+
+### Par computation
+Par is computed greedily (largest valid HR ≤ remaining, repeat). It's an approximation — good enough for scoring display purposes. Don't replace it with an exact solver unless explicitly asked, as it could be slow for large datasets.
+
+### Bust logic
+A pick "busts" if `player.hr > state.remaining`. This costs one life. The opening rule violation does NOT cost a life — it just shows a toast error and blocks the pick.
+
+---
+
+## CSS CONVENTIONS
+
+All colors are defined as CSS custom properties on `:root`. Always use these variables:
+
+```css
+--grass: #1a4a2e        /* dark green */
+--grass-light: #2d6b45  /* medium green */
+--dirt: #c4874a         /* orange/tan */
+--chalk: #f5f0e8        /* off-white text */
+--cream: #faf7f2        /* lightest background tone */
+--gold: #d4a843         /* primary accent */
+--gold-dark: #b8892a    /* gold hover state */
+--red: #c0392b          /* error/danger */
+--red-light: #e74c3c    /* lighter red */
+--navy: #0d1b2a         /* main background */
+--navy-mid: #1a2e42     /* secondary background */
+--sky: #3a7bd5          /* blue accent (rarely used) */
+--score-good: #27ae60   /* green score color */
+--score-ok: #f39c12     /* yellow score color */
+--score-bad: #c0392b    /* red score color */
+```
+
+Never use hardcoded hex values for colors that already have a variable.
+
+---
+
+## ADDING NEW FEATURES — GUIDELINES
+
+### Adding a new daily rule
+1. Open `index.html`
+2. Find the `RULES` array in the `<script>` section
+3. Add a new object: `{ text: 'Your <strong>first player</strong> must ...', fn: p => Boolean }`
+4. Test that the `fn` works correctly against `players.json` data
+5. No other changes needed — the rule will be automatically picked up by the seeded RNG
+
+### Adding new players
+1. Open `players.json`
+2. Add a new entry following the schema above
+3. Double-check: correct position codes, correct team codes, correct `active` flag
+4. For active players, set a reasonable current HR total — it will be updated nightly anyway
+
+### Adding a new game mode
+1. Add a new tab button in the `.mode-tabs` div in `index.html`
+2. Handle the new mode string in `setMode()` and `startGame()`
+3. Update `buildShareText()` to reflect the new mode name in the share card
+4. Keep all state in the `state` object
+
+### Changing the UI
+- The game uses a stadium night aesthetic — dark navy background, gold accents, grass green, chalk white
+- The background uses CSS `::before` and `::after` pseudo-elements on `body` for the stadium/stars effect — be careful editing these
+- Animations use `@keyframes` — keep new animations consistent with existing timing (0.2s–0.5s, ease or cubic-bezier)
+- The scoreboard shake on bust uses `.shake` class with a `shake` keyframe — reuse this pattern for new error states
+
+---
+
+## SCRIPTS/UPDATE_STATS.PY
+
+- Uses only the standard library + `requests` — do not add other dependencies
+- Hits `https://statsapi.mlb.com/api/v1` — no API key required, be polite with `time.sleep(0.3)` between requests
+- Only updates players where `"active": true`
+- Writes back to `players.json` in place
+- Exits with code 1 if more than 20% of active players fail to update (signals a broken API)
+- The GitHub Action will only commit if `players.json` actually changed
+
+---
+
+## WHAT NOT TO DO
+
+- ❌ Do not add a backend, database, or server-side component
+- ❌ Do not add React, Vue, Angular, or any JS framework
+- ❌ Do not split index.html into multiple files (unless explicitly asked)
+- ❌ Do not use localStorage or cookies for game state
+- ❌ Do not change the daily seed formula (breaks daily consistency)
+- ❌ Do not rename player `"name"` fields without updating all references
+- ❌ Do not hardcode colors — use CSS variables
+- ❌ Do not add build steps or package.json unless creating a completely new dev toolchain
+- ❌ Do not modify `.github/workflows/update-players.yml` cron schedule without understanding the MLB API refresh cycle
+
+---
+
+## DEPLOYMENT
+
+- Hosted on **GitHub Pages** from the `main` branch root directory
+- Live URL: `https://harryc0des.github.io/HR-challenge/`
+- No build step — push to main and it's live within ~1 minute
+- The nightly GitHub Action runs at **6:00 AM UTC** — check the Actions tab if stats seem stale
