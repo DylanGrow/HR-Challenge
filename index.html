@@ -1022,8 +1022,12 @@ function renderPicks() {
 // ============================================================
 // AUTOCOMPLETE
 // ============================================================
+function stripAccents(s) {
+  return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
 document.getElementById('search-input').addEventListener('input', function() {
-  const q = this.value.trim().toLowerCase();
+  const q = stripAccents(this.value.trim().toLowerCase());
   selectedPlayer = null;
   document.getElementById('submit-btn').disabled = true;
 
@@ -1032,14 +1036,16 @@ document.getElementById('search-input').addEventListener('input', function() {
   const matches = PLAYERS
     .filter(p => {
       if (state.usedIds.has(p.name)) return false;
-      if (!p.name.toLowerCase().includes(q)) return false;
+      const norm = stripAccents(p.name.toLowerCase());
+      if (!norm.includes(q)) return false;
       if (q.length / p.name.length <= 0.5) return false;
       return true;
     })
     .sort((a, b) => {
-      // Exact start match first
-      const aStart = a.name.toLowerCase().startsWith(q);
-      const bStart = b.name.toLowerCase().startsWith(q);
+      const aNorm = stripAccents(a.name.toLowerCase());
+      const bNorm = stripAccents(b.name.toLowerCase());
+      const aStart = aNorm.startsWith(q);
+      const bStart = bNorm.startsWith(q);
       if (aStart && !bStart) return -1;
       if (!aStart && bStart) return 1;
       return b.hr - a.hr;
@@ -1061,9 +1067,17 @@ document.getElementById('search-input').addEventListener('input', function() {
     const item = document.createElement('div');
     item.className = 'autocomplete-item' + (violatesRule ? ' invalid-rule' : '') + (tooBig ? ' too-big-item' : '');
 
-    // Highlight matching portion
-    const re = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi');
-    const highlighted = p.name.replace(re, '<em>$1</em>');
+    // Highlight matching portion using accent-stripped positions mapped back to original name
+    const norm = stripAccents(p.name);
+    const normLower = norm.toLowerCase();
+    const idx = normLower.indexOf(q);
+    let highlighted = p.name;
+    if (idx !== -1) {
+      const before = p.name.substring(0, idx);
+      const match = p.name.substring(idx, idx + q.length);
+      const after = p.name.substring(idx + q.length);
+      highlighted = before + '<em>' + match + '</em>' + after;
+    }
 
     item.innerHTML = `
       <span class="player-name">${highlighted}</span>
