@@ -6,12 +6,17 @@ on:
     - cron: '0 6 * * *'
   workflow_dispatch: # Allow manual trigger
 
+permissions:
+  contents: write
+
 jobs:
   update-stats:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -28,8 +33,29 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git diff --quiet players.json || (
-            git add players.json &&
-            git commit -m "chore: update active player HR stats [$(date +'%Y-%m-%d')]" &&
-            git push
-          )
+
+          echo "--- Git status ---"
+          git status --short
+
+          if git diff --quiet players.json; then
+            echo "No changes to players.json — skipping commit."
+          else
+            CHANGED=$(git diff --stat players.json)
+            echo "--- Changes detected ---"
+            echo "$CHANGED"
+
+            git add players.json
+            git commit -m "chore: update active player HR stats [$(date +'%Y-%m-%d')]"
+
+            echo "--- Pushing to origin ---"
+            git push 2>&1 || {
+              echo "ERROR: git push failed (exit code $?)"
+              echo "--- Remote URL ---"
+              git remote -v
+              echo "--- Token permissions ---"
+              echo "If you see a 403 error, ensure the repo's Settings > Actions > General >"
+              echo "'Workflow permissions' is set to 'Read and write permissions'."
+              exit 1
+            }
+            echo "Push succeeded."
+          fi
