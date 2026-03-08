@@ -44085,5 +44085,1050 @@
       "TEX"
     ],
     "active": false
+  },
+  {
+    "name": "Nolan Ryan",
+    "hr": 2,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "NYM",
+      "CAL",
+      "HOU",
+      "TEX"
+    ],
+    "active": false
+  },
+  {
+    "name": "Sandy Koufax",
+    "hr": 2,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "BKN",
+      "LAD"
+    ],
+    "active": false
+  },
+  {
+    "name": "Tom Glavine",
+    "hr": 0,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "ATL",
+      "NYM"
+    ],
+    "active": false
+  },
+  {
+    "name": "John Smoltz",
+    "hr": 5,
+    "positions": [
+      "SP",
+      "RP"
+    ],
+    "teams": [
+      "ATL",
+      "BOS",
+      "STL"
+    ],
+    "active": false
+  },
+  {
+    "name": "Mariano Rivera",
+    "hr": 0,
+    "positions": [
+      "RP"
+    ],
+    "teams": [
+      "NYY"
+    ],
+    "active": false
+  },
+  {
+    "name": "Trevor Hoffman",
+    "hr": 0,
+    "positions": [
+      "RP"
+    ],
+    "teams": [
+      "FLA",
+      "SD",
+      "MIL"
+    ],
+    "active": false
+  },
+  {
+    "name": "Tom Seaver",
+    "hr": 12,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "NYM",
+      "CIN",
+      "CWS",
+      "BOS"
+    ],
+    "active": false
+  },
+  {
+    "name": "Steve Carlton",
+    "hr": 13,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "STL",
+      "PHI",
+      "SF",
+      "CWS",
+      "CLE",
+      "MIN"
+    ],
+    "active": false
+  },
+  {
+    "name": "Bob Feller",
+    "hr": 8,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "CLE"
+    ],
+    "active": false
+  },
+  {
+    "name": "Whitey Ford",
+    "hr": 7,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "NYY"
+    ],
+    "active": false
+  },
+  {
+    "name": "Juan Marichal",
+    "hr": 4,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "SF",
+      "BOS",
+      "LAD"
+    ],
+    "active": false
+  },
+  {
+    "name": "Jim Palmer",
+    "hr": 3,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "BAL"
+    ],
+    "active": false
+  },
+  {
+    "name": "Catfish Hunter",
+    "hr": 1,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "OAK",
+      "NYY"
+    ],
+    "active": false
+  },
+  {
+    "name": "Gaylord Perry",
+    "hr": 6,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "SF",
+      "CLE",
+      "TEX",
+      "SD",
+      "NYY",
+      "ATL",
+      "SEA",
+      "KC"
+    ],
+    "active": false
+  },
+  {
+    "name": "Rollie Fingers",
+    "hr": 2,
+    "positions": [
+      "RP"
+    ],
+    "teams": [
+      "OAK",
+      "SD",
+      "MIL"
+    ],
+    "active": false
+  },
+  {
+    "name": "Christy Mathewson",
+    "hr": 7,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "NYG",
+      "CIN"
+    ],
+    "active": false
+  },
+  {
+    "name": "Cy Young",
+    "hr": 18,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "CLE",
+      "STL",
+      "BOS"
+    ],
+    "active": false
+  },
+  {
+    "name": "Satchel Paige",
+    "hr": 0,
+    "positions": [
+      "SP",
+      "RP"
+    ],
+    "teams": [
+      "CLE",
+      "STL",
+      "KC"
+    ],
+    "active": false
+  },
+  {
+    "name": "Dennis Eckersley",
+    "hr": 12,
+    "positions": [
+      "SP",
+      "RP"
+    ],
+    "teams": [
+      "CLE",
+      "BOS",
+      "CHC",
+      "OAK",
+      "STL"
+    ],
+    "active": false
+  },
+  {
+    "name": "Hoyt Wilhelm",
+    "hr": 0,
+    "positions": [
+      "RP"
+    ],
+    "teams": [
+      "NYG",
+      "STL",
+      "CLE",
+      "BAL",
+      "CWS",
+      "CAL",
+      "ATL",
+      "CHC",
+      "LAD"
+    ],
+    "active": false
+  },
+  {
+    "name": "Rich Gossage",
+    "hr": 0,
+    "positions": [
+      "RP"
+    ],
+    "teams": [
+      "CWS",
+      "PIT",
+      "NYY",
+      "SD",
+      "CHC",
+      "SF",
+      "TEX",
+      "OAK",
+      "SEA"
+    ],
+    "active": false
+  },
+  {
+    "name": "Bruce Sutter",
+    "hr": 0,
+    "positions": [
+      "RP"
+    ],
+    "teams": [
+      "CHC",
+      "STL",
+      "ATL"
+    ],
+    "active": false
+  },
+  {
+    "name": "Lee Smith",
+    "hr": 0,
+    "positions": [
+      "RP"
+    ],
+    "teams": [
+      "CHC",
+      "BOS",
+      "STL",
+      "NYY",
+      "BAL",
+      "CAL",
+      "CIN",
+      "MON"
+    ],
+    "active": false
+  },
+  {
+    "name": "Tris Speaker",
+    "hr": 117,
+    "positions": [
+      "CF"
+    ],
+    "teams": [
+      "BOS",
+      "CLE",
+      "WAS",
+      "PHI"
+    ],
+    "active": false
+  },
+  {
+    "name": "Clayton Kershaw",
+    "hr": 3,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "LAD"
+    ],
+    "active": true
+  },
+  {
+    "name": "Justin Verlander",
+    "hr": 1,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "DET",
+      "HOU",
+      "NYM"
+    ],
+    "active": false
+  },
+  {
+    "name": "Max Scherzer",
+    "hr": 11,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "ARI",
+      "DET",
+      "WAS",
+      "LAD",
+      "NYM",
+      "TEX"
+    ],
+    "active": false
+  },
+  {
+    "name": "Jacob deGrom",
+    "hr": 3,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "NYM",
+      "TEX"
+    ],
+    "active": false
+  },
+  {
+    "name": "Zack Greinke",
+    "hr": 14,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "KC",
+      "MIL",
+      "LAA",
+      "LAD",
+      "ARI",
+      "HOU"
+    ],
+    "active": false
+  },
+  {
+    "name": "Chris Sale",
+    "hr": 1,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "CWS",
+      "BOS",
+      "ATL"
+    ],
+    "active": true
+  },
+  {
+    "name": "Gerrit Cole",
+    "hr": 1,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "PIT",
+      "HOU",
+      "NYY"
+    ],
+    "active": true
+  },
+  {
+    "name": "Tyler Glasnow",
+    "hr": 1,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "PIT",
+      "TB",
+      "LAD"
+    ],
+    "active": true
+  },
+  {
+    "name": "Corbin Burnes",
+    "hr": 2,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "MIL",
+      "BAL",
+      "ARI"
+    ],
+    "active": true
+  },
+  {
+    "name": "Madison Bumgarner",
+    "hr": 19,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "SF",
+      "ARI"
+    ],
+    "active": false
+  },
+  {
+    "name": "CC Sabathia",
+    "hr": 4,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "CLE",
+      "MIL",
+      "NYY"
+    ],
+    "active": false
+  },
+  {
+    "name": "Cole Hamels",
+    "hr": 2,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "PHI",
+      "TEX",
+      "CHC",
+      "ATL"
+    ],
+    "active": false
+  },
+  {
+    "name": "David Price",
+    "hr": 2,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "TB",
+      "DET",
+      "TOR",
+      "BOS",
+      "LAD"
+    ],
+    "active": false
+  },
+  {
+    "name": "Felix Hernandez",
+    "hr": 2,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "SEA",
+      "ATL"
+    ],
+    "active": false
+  },
+  {
+    "name": "Jake Arrieta",
+    "hr": 6,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "BAL",
+      "CHC",
+      "PHI",
+      "SD"
+    ],
+    "active": false
+  },
+  {
+    "name": "Max Fried",
+    "hr": 3,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "ATL",
+      "NYY"
+    ],
+    "active": true
+  },
+  {
+    "name": "Spencer Strider",
+    "hr": 1,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "ATL"
+    ],
+    "active": true
+  },
+  {
+    "name": "Framber Valdez",
+    "hr": 2,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "HOU"
+    ],
+    "active": true
+  },
+  {
+    "name": "Blake Snell",
+    "hr": 2,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "TB",
+      "SD",
+      "SF",
+      "LAD"
+    ],
+    "active": true
+  },
+  {
+    "name": "Dylan Cease",
+    "hr": 1,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "CWS",
+      "SD",
+      "ATL"
+    ],
+    "active": true
+  },
+  {
+    "name": "Logan Webb",
+    "hr": 3,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "SF"
+    ],
+    "active": true
+  },
+  {
+    "name": "Sonny Gray",
+    "hr": 1,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "OAK",
+      "NYY",
+      "CIN",
+      "MIN",
+      "STL"
+    ],
+    "active": true
+  },
+  {
+    "name": "Juan Pierre",
+    "hr": 18,
+    "positions": [
+      "CF",
+      "LF"
+    ],
+    "teams": [
+      "COL",
+      "FLA",
+      "CHC",
+      "LAD",
+      "CWS",
+      "PHI",
+      "MIA"
+    ],
+    "active": false
+  },
+  {
+    "name": "Dee Strange-Gordon",
+    "hr": 16,
+    "positions": [
+      "2B",
+      "SS"
+    ],
+    "teams": [
+      "LAD",
+      "MIA",
+      "SEA"
+    ],
+    "active": false
+  },
+  {
+    "name": "Roy Halladay",
+    "hr": 1,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "TOR",
+      "PHI"
+    ],
+    "active": false
+  },
+  {
+    "name": "Johan Santana",
+    "hr": 1,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "MIN",
+      "NYM"
+    ],
+    "active": false
+  },
+  {
+    "name": "Tim Lincecum",
+    "hr": 3,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "SF",
+      "LAA"
+    ],
+    "active": false
+  },
+  {
+    "name": "Roy Oswalt",
+    "hr": 5,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "HOU",
+      "PHI",
+      "TEX",
+      "COL"
+    ],
+    "active": false
+  },
+  {
+    "name": "Mark Buehrle",
+    "hr": 0,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "CWS",
+      "MIA",
+      "TOR"
+    ],
+    "active": false
+  },
+  {
+    "name": "Andy Pettitte",
+    "hr": 2,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "NYY",
+      "HOU"
+    ],
+    "active": false
+  },
+  {
+    "name": "Mike Mussina",
+    "hr": 3,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "BAL",
+      "NYY"
+    ],
+    "active": false
+  },
+  {
+    "name": "Curt Schilling",
+    "hr": 5,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "BAL",
+      "HOU",
+      "PHI",
+      "ARI",
+      "BOS"
+    ],
+    "active": false
+  },
+  {
+    "name": "Kevin Brown",
+    "hr": 5,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "TEX",
+      "BAL",
+      "FLA",
+      "SD",
+      "LAD",
+      "NYY"
+    ],
+    "active": false
+  },
+  {
+    "name": "David Cone",
+    "hr": 3,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "KC",
+      "NYM",
+      "TOR",
+      "NYY",
+      "BOS"
+    ],
+    "active": false
+  },
+  {
+    "name": "Jack Morris",
+    "hr": 1,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "DET",
+      "MIN",
+      "TOR",
+      "CLE"
+    ],
+    "active": false
+  },
+  {
+    "name": "Orel Hershiser",
+    "hr": 2,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "LAD",
+      "CLE",
+      "SF",
+      "NYM"
+    ],
+    "active": false
+  },
+  {
+    "name": "Dwight Gooden",
+    "hr": 4,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "NYM",
+      "NYY",
+      "CLE",
+      "HOU",
+      "TB"
+    ],
+    "active": false
+  },
+  {
+    "name": "Bert Blyleven",
+    "hr": 6,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "MIN",
+      "TEX",
+      "PIT",
+      "CLE",
+      "CAL"
+    ],
+    "active": false
+  },
+  {
+    "name": "Phil Niekro",
+    "hr": 7,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "MIL",
+      "ATL",
+      "NYY",
+      "CLE",
+      "TOR"
+    ],
+    "active": false
+  },
+  {
+    "name": "Lefty Grove",
+    "hr": 5,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "PHI",
+      "BOS"
+    ],
+    "active": false
+  },
+  {
+    "name": "Yoshinobu Yamamoto",
+    "hr": 1,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "LAD"
+    ],
+    "active": true
+  },
+  {
+    "name": "Paul Skenes",
+    "hr": 1,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "PIT"
+    ],
+    "active": true
+  },
+  {
+    "name": "Tarik Skubal",
+    "hr": 1,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "DET"
+    ],
+    "active": true
+  },
+  {
+    "name": "Zack Wheeler",
+    "hr": 4,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "NYM",
+      "PHI"
+    ],
+    "active": true
+  },
+  {
+    "name": "Aaron Nola",
+    "hr": 3,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "PHI"
+    ],
+    "active": true
+  },
+  {
+    "name": "Shane Bieber",
+    "hr": 1,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "CLE"
+    ],
+    "active": true
+  },
+  {
+    "name": "Freddy Peralta",
+    "hr": 2,
+    "positions": [
+      "SP"
+    ],
+    "teams": [
+      "MIL"
+    ],
+    "active": true
+  },
+  {
+    "name": "Emmanuel Clase",
+    "hr": 0,
+    "positions": [
+      "RP"
+    ],
+    "teams": [
+      "TEX",
+      "CLE"
+    ],
+    "active": true
+  },
+  {
+    "name": "Josh Hader",
+    "hr": 0,
+    "positions": [
+      "RP"
+    ],
+    "teams": [
+      "MIL",
+      "SD",
+      "HOU"
+    ],
+    "active": true
+  },
+  {
+    "name": "Edwin Diaz",
+    "hr": 0,
+    "positions": [
+      "RP"
+    ],
+    "teams": [
+      "SEA",
+      "NYM"
+    ],
+    "active": true
+  },
+  {
+    "name": "Kenley Jansen",
+    "hr": 0,
+    "positions": [
+      "RP"
+    ],
+    "teams": [
+      "LAD",
+      "ATL",
+      "BOS",
+      "PIT"
+    ],
+    "active": true
+  },
+  {
+    "name": "Craig Kimbrel",
+    "hr": 0,
+    "positions": [
+      "RP"
+    ],
+    "teams": [
+      "ATL",
+      "SD",
+      "BOS",
+      "CHC",
+      "CWS",
+      "LAD",
+      "PHI",
+      "BAL"
+    ],
+    "active": false
+  },
+  {
+    "name": "Aroldis Chapman",
+    "hr": 0,
+    "positions": [
+      "RP"
+    ],
+    "teams": [
+      "CIN",
+      "NYY",
+      "CHC",
+      "KC",
+      "TEX",
+      "PIT"
+    ],
+    "active": true
+  },
+  {
+    "name": "Devin Williams",
+    "hr": 0,
+    "positions": [
+      "RP"
+    ],
+    "teams": [
+      "MIL",
+      "NYY"
+    ],
+    "active": true
   }
 ]
