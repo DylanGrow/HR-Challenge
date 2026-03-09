@@ -492,7 +492,7 @@
   },
   {
     "name": "Mike Trout",
-    "hr": 368,
+    "hr": 404,
     "positions": [
       "CF"
     ],
@@ -640,7 +640,7 @@
   },
   {
     "name": "Manny Machado",
-    "hr": 296,
+    "hr": 369,
     "positions": [
       "3B",
       "SS"
@@ -654,7 +654,7 @@
   },
   {
     "name": "Bryce Harper",
-    "hr": 284,
+    "hr": 363,
     "positions": [
       "RF",
       "LF"
@@ -667,7 +667,7 @@
   },
   {
     "name": "Giancarlo Stanton",
-    "hr": 462,
+    "hr": 453,
     "positions": [
       "RF",
       "LF",
@@ -850,7 +850,7 @@
   },
   {
     "name": "Paul Goldschmidt",
-    "hr": 360,
+    "hr": 372,
     "positions": [
       "1B"
     ],
@@ -862,7 +862,7 @@
   },
   {
     "name": "Nolan Arenado",
-    "hr": 369,
+    "hr": 353,
     "positions": [
       "3B"
     ],
@@ -915,7 +915,7 @@
   },
   {
     "name": "Freddie Freeman",
-    "hr": 332,
+    "hr": 367,
     "positions": [
       "1B"
     ],
@@ -927,7 +927,7 @@
   },
   {
     "name": "Cody Bellinger",
-    "hr": 177,
+    "hr": 225,
     "positions": [
       "CF",
       "1B",
@@ -942,7 +942,7 @@
   },
   {
     "name": "Pete Alonso",
-    "hr": 226,
+    "hr": 264,
     "positions": [
       "1B"
     ],
@@ -953,7 +953,7 @@
   },
   {
     "name": "Vladimir Guerrero Jr.",
-    "hr": 175,
+    "hr": 183,
     "positions": [
       "1B",
       "DH",
@@ -966,7 +966,7 @@
   },
   {
     "name": "Fernando Tatis Jr.",
-    "hr": 149,
+    "hr": 152,
     "positions": [
       "SS",
       "RF"
@@ -978,7 +978,7 @@
   },
   {
     "name": "Aaron Judge",
-    "hr": 310,
+    "hr": 368,
     "positions": [
       "RF",
       "CF"
@@ -990,7 +990,7 @@
   },
   {
     "name": "Shohei Ohtani",
-    "hr": 238,
+    "hr": 280,
     "positions": [
       "DH",
       "SP"
@@ -1003,7 +1003,7 @@
   },
   {
     "name": "Juan Soto",
-    "hr": 198,
+    "hr": 244,
     "positions": [
       "LF",
       "RF"
@@ -1018,7 +1018,7 @@
   },
   {
     "name": "Yordan Alvarez",
-    "hr": 196,
+    "hr": 170,
     "positions": [
       "LF",
       "DH"
@@ -1030,7 +1030,7 @@
   },
   {
     "name": "Kyle Schwarber",
-    "hr": 262,
+    "hr": 340,
     "positions": [
       "LF",
       "DH"
@@ -1045,7 +1045,7 @@
   },
   {
     "name": "Matt Olson",
-    "hr": 247,
+    "hr": 288,
     "positions": [
       "1B"
     ],
@@ -1057,7 +1057,7 @@
   },
   {
     "name": "Marcell Ozuna",
-    "hr": 246,
+    "hr": 296,
     "positions": [
       "LF",
       "DH"
@@ -1071,7 +1071,7 @@
   },
   {
     "name": "Corey Seager",
-    "hr": 208,
+    "hr": 221,
     "positions": [
       "SS"
     ],
@@ -1083,7 +1083,7 @@
   },
   {
     "name": "Trea Turner",
-    "hr": 161,
+    "hr": 186,
     "positions": [
       "SS",
       "2B"
@@ -1097,7 +1097,7 @@
   },
   {
     "name": "Jose Ramirez",
-    "hr": 241,
+    "hr": 285,
     "positions": [
       "3B",
       "2B"
@@ -1109,7 +1109,7 @@
   },
   {
     "name": "Xander Bogaerts",
-    "hr": 188,
+    "hr": 197,
     "positions": [
       "SS"
     ],
@@ -1121,7 +1121,7 @@
   },
   {
     "name": "Bo Bichette",
-    "hr": 119,
+    "hr": 111,
     "positions": [
       "SS"
     ],
@@ -1132,7 +1132,7 @@
   },
   {
     "name": "Julio Rodriguez",
-    "hr": 74,
+    "hr": 112,
     "positions": [
       "CF"
     ],
@@ -1143,7 +1143,7 @@
   },
   {
     "name": "Bobby Witt Jr.",
-    "hr": 74,
+    "hr": 105,
     "positions": [
       "SS",
       "3B"
@@ -1155,7 +1155,7 @@
   },
   {
     "name": "Gunnar Henderson",
-    "hr": 56,
+    "hr": 86,
     "positions": [
       "SS",
       "3B"
@@ -1167,7 +1167,7 @@
   },
   {
     "name": "Jackson Holliday",
-    "hr": 12,
+    "hr": 22,
     "positions": [
       "2B",
       "SS"
@@ -1179,7 +1179,7 @@
   },
   {
     "name": "Adley Rutschman",
-    "hr": 57,
+    "hr": 61,
     "positions": [
       "C"
     ],
@@ -1190,7 +1190,7 @@
   },
   {
     "name": "Cal Raleigh",
-    "hr": 98,
+    "hr": 153,
     "positions": [
       "C"
     ],
@@ -1201,7 +1201,7 @@
   },
   {
     "name": "William Contreras",
-    "hr": 87,
+    "hr": 85,
     "positions": [
       "C",
       "DH"
@@ -1214,7 +1214,7 @@
   },
   {
     "name": "J.T. Realmuto",
-    "hr": 179,
+    "hr": 180,
     "positions": [
       "C"
     ],
@@ -1564,7 +1564,7 @@
   },
   {
     "name": "George Springer",
-    "hr": 263,
+    "hr": 293,
     "positions": [
       "RF",
       "CF"
@@ -2016,7 +2016,7 @@
   },
   {
     "name": "Gleyber Torres",
-    "hr": 121,
+    "hr": 154,
     "positions": [
       "2B",
       "SS"
@@ -2029,7 +2029,7 @@
   },
   {
     "name": "Marcus Semien",
-    "hr": 200,
+    "hr": 253,
     "positions": [
       "SS",
       "2B"
@@ -2044,7 +2044,7 @@
   },
   {
     "name": "Francisco Lindor",
-    "hr": 220,
+    "hr": 279,
     "positions": [
       "SS"
     ],
@@ -2056,7 +2056,7 @@
   },
   {
     "name": "Carlos Correa",
-    "hr": 185,
+    "hr": 200,
     "positions": [
       "SS"
     ],
@@ -2070,7 +2070,7 @@
   },
   {
     "name": "Dansby Swanson",
-    "hr": 135,
+    "hr": 164,
     "positions": [
       "SS"
     ],
@@ -2082,7 +2082,7 @@
   },
   {
     "name": "Willy Adames",
-    "hr": 137,
+    "hr": 180,
     "positions": [
       "SS"
     ],
@@ -2202,7 +2202,7 @@
   },
   {
     "name": "Jose Altuve",
-    "hr": 225,
+    "hr": 255,
     "positions": [
       "2B"
     ],
@@ -2213,7 +2213,7 @@
   },
   {
     "name": "Ozzie Albies",
-    "hr": 135,
+    "hr": 157,
     "positions": [
       "2B"
     ],
@@ -2444,7 +2444,7 @@
   },
   {
     "name": "Alex Bregman",
-    "hr": 189,
+    "hr": 209,
     "positions": [
       "3B",
       "SS"
@@ -2457,7 +2457,7 @@
   },
   {
     "name": "Rafael Devers",
-    "hr": 196,
+    "hr": 235,
     "positions": [
       "3B"
     ],
@@ -2469,7 +2469,7 @@
   },
   {
     "name": "Austin Riley",
-    "hr": 183,
+    "hr": 169,
     "positions": [
       "3B"
     ],
@@ -2480,7 +2480,7 @@
   },
   {
     "name": "Max Muncy",
-    "hr": 196,
+    "hr": 214,
     "positions": [
       "1B",
       "2B",
@@ -2494,7 +2494,7 @@
   },
   {
     "name": "Eugenio Suarez",
-    "hr": 234,
+    "hr": 325,
     "positions": [
       "3B",
       "SS"
@@ -2509,7 +2509,7 @@
   },
   {
     "name": "Ty France",
-    "hr": 82,
+    "hr": 81,
     "positions": [
       "1B",
       "2B",
@@ -2524,7 +2524,7 @@
   },
   {
     "name": "Ryan McMahon",
-    "hr": 117,
+    "hr": 144,
     "positions": [
       "2B",
       "3B",
@@ -2553,7 +2553,7 @@
   },
   {
     "name": "Salvador Perez",
-    "hr": 221,
+    "hr": 303,
     "positions": [
       "C",
       "DH"
@@ -2565,7 +2565,7 @@
   },
   {
     "name": "Willson Contreras",
-    "hr": 142,
+    "hr": 172,
     "positions": [
       "C"
     ],
@@ -2577,7 +2577,7 @@
   },
   {
     "name": "Sean Murphy",
-    "hr": 109,
+    "hr": 93,
     "positions": [
       "C"
     ],
@@ -2589,7 +2589,7 @@
   },
   {
     "name": "MJ Melendez",
-    "hr": 53,
+    "hr": 52,
     "positions": [
       "C",
       "LF",
@@ -3110,7 +3110,7 @@
   },
   {
     "name": "Anthony Rizzo",
-    "hr": 243,
+    "hr": 303,
     "positions": [
       "1B"
     ],
@@ -3123,7 +3123,7 @@
   },
   {
     "name": "Christian Yelich",
-    "hr": 177,
+    "hr": 233,
     "positions": [
       "LF",
       "CF",
@@ -3137,7 +3137,7 @@
   },
   {
     "name": "Teoscar Hernandez",
-    "hr": 177,
+    "hr": 217,
     "positions": [
       "RF",
       "LF",
@@ -3153,7 +3153,7 @@
   },
   {
     "name": "Michael Conforto",
-    "hr": 132,
+    "hr": 179,
     "positions": [
       "RF",
       "CF",
@@ -3167,7 +3167,7 @@
   },
   {
     "name": "Byron Buxton",
-    "hr": 118,
+    "hr": 168,
     "positions": [
       "CF"
     ],
@@ -3178,7 +3178,7 @@
   },
   {
     "name": "Cedric Mullins",
-    "hr": 74,
+    "hr": 103,
     "positions": [
       "CF",
       "LF"
@@ -3190,7 +3190,7 @@
   },
   {
     "name": "Lourdes Gurriel Jr.",
-    "hr": 126,
+    "hr": 129,
     "positions": [
       "LF",
       "RF"
@@ -3203,7 +3203,7 @@
   },
   {
     "name": "Eloy Jimenez",
-    "hr": 107,
+    "hr": 95,
     "positions": [
       "LF",
       "DH"
@@ -3216,7 +3216,7 @@
   },
   {
     "name": "Michael Harris II",
-    "hr": 47,
+    "hr": 73,
     "positions": [
       "CF"
     ],
@@ -3227,7 +3227,7 @@
   },
   {
     "name": "Steven Kwan",
-    "hr": 38,
+    "hr": 36,
     "positions": [
       "LF",
       "CF"
@@ -3239,7 +3239,7 @@
   },
   {
     "name": "Lane Thomas",
-    "hr": 74,
+    "hr": 76,
     "positions": [
       "RF",
       "LF",
@@ -3254,7 +3254,7 @@
   },
   {
     "name": "CJ Abrams",
-    "hr": 35,
+    "hr": 59,
     "positions": [
       "SS"
     ],
@@ -3266,7 +3266,7 @@
   },
   {
     "name": "Elly De La Cruz",
-    "hr": 37,
+    "hr": 60,
     "positions": [
       "SS",
       "3B",
@@ -3279,7 +3279,7 @@
   },
   {
     "name": "Jazz Chisholm Jr.",
-    "hr": 91,
+    "hr": 108,
     "positions": [
       "2B",
       "CF"
@@ -3292,7 +3292,7 @@
   },
   {
     "name": "Jarren Duran",
-    "hr": 36,
+    "hr": 50,
     "positions": [
       "CF",
       "LF"
@@ -3304,7 +3304,7 @@
   },
   {
     "name": "Josh Naylor",
-    "hr": 98,
+    "hr": 104,
     "positions": [
       "1B",
       "LF",
@@ -3319,7 +3319,7 @@
   },
   {
     "name": "Spencer Torkelson",
-    "hr": 67,
+    "hr": 80,
     "positions": [
       "1B",
       "DH"
@@ -3331,7 +3331,7 @@
   },
   {
     "name": "Josh Jung",
-    "hr": 52,
+    "hr": 49,
     "positions": [
       "3B"
     ],
@@ -3342,7 +3342,7 @@
   },
   {
     "name": "Royce Lewis",
-    "hr": 42,
+    "hr": 46,
     "positions": [
       "SS",
       "3B"
@@ -3354,7 +3354,7 @@
   },
   {
     "name": "Masataka Yoshida",
-    "hr": 44,
+    "hr": 29,
     "positions": [
       "LF",
       "DH"
@@ -3377,7 +3377,7 @@
   },
   {
     "name": "Ha-Seong Kim",
-    "hr": 55,
+    "hr": 52,
     "positions": [
       "SS",
       "2B",
@@ -3390,7 +3390,7 @@
   },
   {
     "name": "Seiya Suzuki",
-    "hr": 68,
+    "hr": 87,
     "positions": [
       "RF"
     ],
@@ -3401,7 +3401,7 @@
   },
   {
     "name": "Willson Contreras",
-    "hr": 142,
+    "hr": 172,
     "positions": [
       "C"
     ],
@@ -3413,7 +3413,7 @@
   },
   {
     "name": "Nick Castellanos",
-    "hr": 237,
+    "hr": 250,
     "positions": [
       "RF",
       "LF",
@@ -3429,7 +3429,7 @@
   },
   {
     "name": "Mookie Betts",
-    "hr": 236,
+    "hr": 291,
     "positions": [
       "RF",
       "2B",
@@ -3454,7 +3454,7 @@
   },
   {
     "name": "Oneil Cruz",
-    "hr": 46,
+    "hr": 60,
     "positions": [
       "SS",
       "CF"
@@ -3466,7 +3466,7 @@
   },
   {
     "name": "Ke'Bryan Hayes",
-    "hr": 57,
+    "hr": 42,
     "positions": [
       "3B"
     ],
@@ -3477,7 +3477,7 @@
   },
   {
     "name": "Brendan Donovan",
-    "hr": 34,
+    "hr": 40,
     "positions": [
       "2B",
       "LF",
@@ -3490,7 +3490,7 @@
   },
   {
     "name": "Vinnie Pasquantino",
-    "hr": 48,
+    "hr": 70,
     "positions": [
       "1B",
       "DH"
@@ -3502,7 +3502,7 @@
   },
   {
     "name": "Andrew Vaughn",
-    "hr": 60,
+    "hr": 86,
     "positions": [
       "1B",
       "LF",
@@ -3515,7 +3515,7 @@
   },
   {
     "name": "Wilmer Flores",
-    "hr": 119,
+    "hr": 169,
     "positions": [
       "1B",
       "2B",
@@ -3529,7 +3529,7 @@
   },
   {
     "name": "Nolan Jones",
-    "hr": 44,
+    "hr": 30,
     "positions": [
       "RF",
       "LF",
@@ -3543,7 +3543,7 @@
   },
   {
     "name": "Riley Greene",
-    "hr": 53,
+    "hr": 76,
     "positions": [
       "CF",
       "LF"
@@ -44421,7 +44421,7 @@
   },
   {
     "name": "Clayton Kershaw",
-    "hr": 3,
+    "hr": 1,
     "positions": [
       "SP"
     ],
@@ -44489,7 +44489,7 @@
   },
   {
     "name": "Chris Sale",
-    "hr": 1,
+    "hr": 0,
     "positions": [
       "SP"
     ],
@@ -44502,7 +44502,7 @@
   },
   {
     "name": "Gerrit Cole",
-    "hr": 1,
+    "hr": 3,
     "positions": [
       "SP"
     ],
@@ -44515,7 +44515,7 @@
   },
   {
     "name": "Tyler Glasnow",
-    "hr": 1,
+    "hr": 0,
     "positions": [
       "SP"
     ],
@@ -44528,7 +44528,7 @@
   },
   {
     "name": "Corbin Burnes",
-    "hr": 2,
+    "hr": 0,
     "positions": [
       "SP"
     ],
@@ -44621,7 +44621,7 @@
   },
   {
     "name": "Max Fried",
-    "hr": 3,
+    "hr": 0,
     "positions": [
       "SP"
     ],
@@ -44633,7 +44633,7 @@
   },
   {
     "name": "Spencer Strider",
-    "hr": 1,
+    "hr": 0,
     "positions": [
       "SP"
     ],
@@ -44644,7 +44644,7 @@
   },
   {
     "name": "Framber Valdez",
-    "hr": 2,
+    "hr": 0,
     "positions": [
       "SP"
     ],
@@ -44655,7 +44655,7 @@
   },
   {
     "name": "Blake Snell",
-    "hr": 2,
+    "hr": 0,
     "positions": [
       "SP"
     ],
@@ -44669,7 +44669,7 @@
   },
   {
     "name": "Dylan Cease",
-    "hr": 1,
+    "hr": 0,
     "positions": [
       "SP"
     ],
@@ -44682,7 +44682,7 @@
   },
   {
     "name": "Logan Webb",
-    "hr": 3,
+    "hr": 1,
     "positions": [
       "SP"
     ],
@@ -44693,7 +44693,7 @@
   },
   {
     "name": "Sonny Gray",
-    "hr": 1,
+    "hr": 0,
     "positions": [
       "SP"
     ],
@@ -44980,7 +44980,7 @@
   },
   {
     "name": "Tarik Skubal",
-    "hr": 1,
+    "hr": 0,
     "positions": [
       "SP"
     ],
@@ -44991,7 +44991,7 @@
   },
   {
     "name": "Zack Wheeler",
-    "hr": 4,
+    "hr": 1,
     "positions": [
       "SP"
     ],
@@ -45003,7 +45003,7 @@
   },
   {
     "name": "Aaron Nola",
-    "hr": 3,
+    "hr": 0,
     "positions": [
       "SP"
     ],
@@ -45014,7 +45014,7 @@
   },
   {
     "name": "Shane Bieber",
-    "hr": 1,
+    "hr": 0,
     "positions": [
       "SP"
     ],
@@ -45025,7 +45025,7 @@
   },
   {
     "name": "Freddy Peralta",
-    "hr": 2,
+    "hr": 0,
     "positions": [
       "SP"
     ],
@@ -45494,7 +45494,7 @@
   },
   {
     "name": "Joe Musgrove",
-    "hr": 1,
+    "hr": 0,
     "positions": [
       "SP"
     ],
@@ -45507,7 +45507,7 @@
   },
   {
     "name": "Charlie Morton",
-    "hr": 1,
+    "hr": 0,
     "positions": [
       "SP"
     ],
@@ -45521,7 +45521,7 @@
   },
   {
     "name": "Miles Mikolas",
-    "hr": 1,
+    "hr": 2,
     "positions": [
       "SP"
     ],
@@ -45534,7 +45534,7 @@
   },
   {
     "name": "Ranger Suarez",
-    "hr": 1,
+    "hr": 0,
     "positions": [
       "SP"
     ],
@@ -45545,7 +45545,7 @@
   },
   {
     "name": "Luis Severino",
-    "hr": 1,
+    "hr": 0,
     "positions": [
       "SP"
     ],
@@ -45557,7 +45557,7 @@
   },
   {
     "name": "Jose Quintana",
-    "hr": 1,
+    "hr": 0,
     "positions": [
       "SP"
     ],
@@ -45574,7 +45574,7 @@
   },
   {
     "name": "Michael King",
-    "hr": 1,
+    "hr": 0,
     "positions": [
       "SP",
       "RP"
@@ -45621,7 +45621,7 @@
   },
   {
     "name": "Tanner Houck",
-    "hr": 1,
+    "hr": 0,
     "positions": [
       "SP"
     ],
