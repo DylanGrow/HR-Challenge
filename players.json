@@ -640,7 +640,7 @@
   },
   {
     "name": "Manny Machado",
-    "hr": 370,
+    "hr": 371,
     "positions": [
       "3B",
       "SS"
@@ -654,7 +654,7 @@
   },
   {
     "name": "Bryce Harper",
-    "hr": 365,
+    "hr": 366,
     "positions": [
       "RF",
       "LF"
@@ -990,7 +990,7 @@
   },
   {
     "name": "Shohei Ohtani",
-    "hr": 283,
+    "hr": 284,
     "positions": [
       "DH",
       "SP"
@@ -1018,7 +1018,7 @@
   },
   {
     "name": "Yordan Alvarez",
-    "hr": 175,
+    "hr": 176,
     "positions": [
       "LF",
       "DH"
@@ -1030,7 +1030,7 @@
   },
   {
     "name": "Kyle Schwarber",
-    "hr": 343,
+    "hr": 344,
     "positions": [
       "LF",
       "DH"
@@ -1097,7 +1097,7 @@
   },
   {
     "name": "Jose Ramirez",
-    "hr": 286,
+    "hr": 287,
     "positions": [
       "3B",
       "2B"
@@ -1121,7 +1121,7 @@
   },
   {
     "name": "Bo Bichette",
-    "hr": 111,
+    "hr": 112,
     "positions": [
       "SS"
     ],
@@ -1132,7 +1132,7 @@
   },
   {
     "name": "Julio Rodriguez",
-    "hr": 112,
+    "hr": 113,
     "positions": [
       "CF"
     ],
@@ -1155,7 +1155,7 @@
   },
   {
     "name": "Gunnar Henderson",
-    "hr": 91,
+    "hr": 92,
     "positions": [
       "SS",
       "3B"
@@ -1190,7 +1190,7 @@
   },
   {
     "name": "Cal Raleigh",
-    "hr": 154,
+    "hr": 155,
     "positions": [
       "C"
     ],
@@ -1201,7 +1201,7 @@
   },
   {
     "name": "William Contreras",
-    "hr": 86,
+    "hr": 87,
     "positions": [
       "C",
       "DH"
@@ -3137,7 +3137,7 @@
   },
   {
     "name": "Teoscar Hernandez",
-    "hr": 219,
+    "hr": 220,
     "positions": [
       "RF",
       "LF",
@@ -3543,7 +3543,7 @@
   },
   {
     "name": "Riley Greene",
-    "hr": 76,
+    "hr": 77,
     "positions": [
       "CF",
       "LF"
@@ -8297,7 +8297,7 @@
   },
   {
     "name": "Ketel Marte",
-    "hr": 172,
+    "hr": 173,
     "positions": [
       "2B"
     ],
@@ -9358,7 +9358,7 @@
   },
   {
     "name": "Jorge Polanco",
-    "hr": 154,
+    "hr": 155,
     "positions": [
       "2B"
     ],
@@ -10833,7 +10833,7 @@
   },
   {
     "name": "Brandon Nimmo",
-    "hr": 136,
+    "hr": 138,
     "positions": [
       "LF"
     ],
@@ -14195,7 +14195,7 @@
   },
   {
     "name": "Ram\u00f3n Laureano",
-    "hr": 108,
+    "hr": 109,
     "positions": [
       "RF"
     ],
@@ -15222,7 +15222,7 @@
   },
   {
     "name": "Daulton Varsho",
-    "hr": 100,
+    "hr": 101,
     "positions": [
       "CF"
     ],
@@ -19807,7 +19807,7 @@
   },
   {
     "name": "Jes\u00fas S\u00e1nchez",
-    "hr": 74,
+    "hr": 75,
     "positions": [
       "RF"
     ],
@@ -21481,7 +21481,7 @@
   },
   {
     "name": "Spencer Steer",
-    "hr": 67,
+    "hr": 68,
     "positions": [
       "1B"
     ],
@@ -24361,7 +24361,7 @@
   },
   {
     "name": "Mickey Moniak",
-    "hr": 59,
+    "hr": 61,
     "positions": [
       "RF"
     ],
@@ -25447,7 +25447,7 @@
   },
   {
     "name": "Trevor Larnach",
-    "hr": 52,
+    "hr": 53,
     "positions": [
       "RF"
     ],
@@ -26941,7 +26941,7 @@
   },
   {
     "name": "Francisco Alvarez",
-    "hr": 51,
+    "hr": 52,
     "positions": [
       "C"
     ],
@@ -30847,7 +30847,7 @@
   },
   {
     "name": "Austin Wells",
-    "hr": 38,
+    "hr": 39,
     "positions": [
       "C"
     ],
@@ -31734,7 +31734,7 @@
   },
   {
     "name": "Tyler Soderstrom",
-    "hr": 37,
+    "hr": 39,
     "positions": [
       "LF"
     ],
@@ -37982,7 +37982,7 @@
   },
   {
     "name": "Edouard Julien",
-    "hr": 27,
+    "hr": 28,
     "positions": [
       "2B"
     ],
@@ -38093,7 +38093,7 @@
   },
   {
     "name": "Maikel Garcia",
-    "hr": 28,
+    "hr": 29,
     "positions": [
       "3B"
     ],
@@ -38183,7 +38183,7 @@
   },
   {
     "name": "Jordan Walker",
-    "hr": 32,
+    "hr": 33,
     "positions": [
       "RF"
     ],
